@@ -48,4 +48,18 @@ $(document).ready(function(){
   });
 });
 
-projects[0].toHtml();
+///click event for project Next button
+$(document).ready(function(){
+  var index = projects.length - 1;
+  projects[index].toHtml();
+
+  $('#next-button').click(function(){
+    index +=1;
+    if(index < projects.length){
+      projects[index].toHtml();
+    }else {
+      index = 0;
+      projects[index].toHtml();
+    }
+  });
+});
