@@ -1,17 +1,7 @@
 
 /*moves picture over to right-hand side of page when screen is big enough*/
 @media (min-width:500px) {
-  #intro-text {
-    display: inline-block;
-    width: 25%;
-    height: 100%;
-  }
-  #intro-image {
-    display: inline-block;
-    float: right;
-    width: 65%;
-    background-color: black;
-  }
+  /*Stuff for desktop view goes here*/
 }
 
 .navigation li, .navigation ul{
