@@ -3,8 +3,12 @@
 }
 
 .icon-menu{
-  font-size: 2em;
+  font-size: 1.6em;
   color: white;
+}
+
+.navigation li {
+  font-size: 100%;
 }
 
 a.icon-menu {

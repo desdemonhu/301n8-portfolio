@@ -16,13 +16,18 @@ function Project(name, url, image, description){
 ///hamburger menu closes if you click it a second time
 $(document).ready(function(){
   var click = 0;
+
   $('.icon-menu').click(function(){
+    var $viewPort = $(window).width();
     click += 1;
-    if(click % 2 === 0 ){
+    if(click % 2 === 0){
       $('.navigation ul').css('display', 'none');
-      console.log(click);
-    }else {
+    } else if ($viewPort < 400) {
+      $('.navigation ul').css('display', 'block');
+      $('.navigation li').css('display', 'block');
+    } else {
       $('.navigation ul').css('display', 'inline');
+      $('.navigation li').css('display', 'inline');
     }
   });
 });

@@ -1,7 +1,12 @@
 
 /*moves picture over to right-hand side of page when screen is big enough*/
-@media (min-width:500px) {
+@media (min-width:600px) {
   /*Stuff for desktop view goes here*/
+}
+@media (max-width:400px) {
+  .navigation li, .navigation ul{
+    display: block;
+  }
 }
 
 .navigation li, .navigation ul{
@@ -10,7 +15,7 @@
 }
 
 .navigation {
-  margin: auto;
+  position: relative;
   background-color: black;
   color: white;
 }
