@@ -1,13 +1,5 @@
 
 /*moves picture over to right-hand side of page when screen is big enough*/
-@media (min-width:600px) {
-  /*Stuff for desktop view goes here*/
-}
-@media (max-width:400px) {
-  .navigation li, .navigation ul{
-    display: block;
-  }
-}
 
 .navigation li, .navigation ul{
   display: inline;
@@ -38,4 +30,23 @@
 #intro-image img {
   width: 96%;
   padding: 2%;
+}
+
+@media (min-width:800px) {
+  /*Stuff for desktop view goes here*/
+  .navigation {
+    position: relative;
+    padding: 1%;
+  }
+
+  .navigation:not(:hover) ul{
+    display: inline;
+    margin-left: 10%;
+  }
+  .icon-menu{
+    display: none;
+  }
+  .navigation li {
+    font-size: 2em;
+  }
 }
