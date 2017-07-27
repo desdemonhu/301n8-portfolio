@@ -46,3 +46,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/*RESET CSS END	*/
+
+body{
+	background-color: lightgrey;
+}
