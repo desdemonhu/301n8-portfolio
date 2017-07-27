@@ -46,10 +46,8 @@ $(document).ready(function(){
       $('.navigation li').css('display', 'inline');
     }
   });
-});
 
-///click event for project Next button
-$(document).ready(function(){
+  ///click event for project Next button
   var index = projects.length - 1;
   projects[index].toHtml();
 
