@@ -15,12 +15,12 @@
   color: white;
 }
 
-.navigation ul{
+.navigation:not(:hover) ul{
   display: none;
 }
 
 .navigation:hover ul {
-  display: block;
+  display: inline;
 }
 
 #intro {
