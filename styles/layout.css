@@ -3,3 +3,19 @@
     background-color: black;
   }*/
 }
+
+#intro {
+  width: 100%;
+}
+
+#intro-text {
+  display: inline-block;
+}
+#intro-image {
+  display: inline-block;
+  padding: 50%;
+  float: right;
+  background-image: url('../assets/the_writer.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
