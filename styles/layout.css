@@ -1,21 +1,38 @@
+
+/*moves picture over to right-hand side of page when screen is big enough*/
 @media (min-width:500px) {
-  /*body {
+  #intro-text {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+  }
+  #intro-image {
+    display: inline-block;
+    float: right;
+    width: 65%;
     background-color: black;
-  }*/
+  }
+}
+
+.navigation li, .navigation ul{
+  display: inline;
+  padding: 2%;
+}
+
+.navigation {
+  margin: auto;
+  background-color: black;
+  color: white;
 }
 
 #intro {
   width: 100%;
+  height: 100%;
+  color: white;
+  background-color: black;
 }
 
-#intro-text {
-  display: inline-block;
-}
-#intro-image {
-  display: inline-block;
-  padding: 50%;
-  float: right;
-  background-image: url('../assets/the_writer.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+#intro-image img {
+  width: 96%;
+  padding: 2%;
 }
