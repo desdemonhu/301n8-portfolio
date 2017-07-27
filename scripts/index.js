@@ -3,9 +3,9 @@
 var projects = [];
 
 ///placeholder projects
-var project1 = new Project('Portfolio', '', '', 'A portfolio of projects, focused on mobile-first design, SMACSS design principles, and reusability accross multiple projects.');
-var project2 = new Project('Project Two', '', '', 'A placeholder project');
-var project3 = new Project('Project Three', '', '', 'A placeholder project in third place');
+var project1 = new Project('Portfolio', '#', '', 'A portfolio of projects, focused on mobile-first design, SMACSS design principles, and reusability accross multiple projects.');
+var project2 = new Project('Project Two', '#', '', 'A placeholder project');
+var project3 = new Project('Project Three', '#', '', 'A placeholder project in third place');
 
 ///constructor function for project information
 function Project(name, url, image, description){
@@ -20,9 +20,10 @@ function Project(name, url, image, description){
 
 Project.prototype.toHtml = function(){
   ///displays name, url, image, and description
-  $('project-name').text(this.name);
-  $('project-url').attr('src', this.url).text(this.url);
-  $('project-description').text(this.description);
+  $('#project-image').attr('src', this.image);
+  $('#project-name').text(this.name);
+  $('#project-url').attr('href', this.url).text(this.url);
+  $('#project-description').text(this.description);
 };
 
 ///hamburger menu closes if you click it a second time
