@@ -15,3 +15,7 @@ a.icon-menu {
   text-decoration: none;
   color: white;
 }
+
+.template {
+  display: none;
+}
