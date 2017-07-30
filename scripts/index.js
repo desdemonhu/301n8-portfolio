@@ -22,8 +22,24 @@ Project.prototype.toHtml = function(){
   $('#project-description').text(this.description);
 };
 
+///click event for project Next button
+function featureDisplay(){
+  var index = projects.length - 1;
+  projects[index].toHtml();
+
+  $('#next-button').click(function(){
+    index +=1;
+    if(index < projects.length){
+      projects[index].toHtml();
+    }else {
+      index = 0;
+      projects[index].toHtml();
+    }
+  });
+}
+
 ///hamburger menu closes if you click it a second time
-$(document).ready(function(){
+function hamburgerMenu(){
   var click = 0;  ///number of times hamburger menu has been clicked
   var viewPort = $(window).width();
 
@@ -42,18 +58,9 @@ $(document).ready(function(){
       $('.navigation li').css('display', 'inline');
     }
   });
+}
 
-  ///click event for project Next button
-  var index = projects.length - 1;
-  projects[index].toHtml();
-
-  $('#next-button').click(function(){
-    index +=1;
-    if(index < projects.length){
-      projects[index].toHtml();
-    }else {
-      index = 0;
-      projects[index].toHtml();
-    }
-  });
+$(document).ready(function(){
+  hamburgerMenu();
+  featureDisplay();
 });

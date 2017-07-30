@@ -16,6 +16,11 @@ a.icon-menu {
   color: white;
 }
 
+.menu {
+  width: 100%;
+  background-color: black;
+}
+
 .template {
   display: none;
 }
