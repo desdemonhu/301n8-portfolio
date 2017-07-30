@@ -12,6 +12,10 @@
   color: white;
 }
 
+.navigation a {
+  text-decoration: none;
+  color: white;
+}
 .navigation ul{
   display: none;
 }

@@ -1,6 +1,8 @@
 'use strict';
 ///array of all projects
 var projects = [];
+
+
 ///constructor function for project information
 function Project(name, url, image, description){
   this.name = name;
@@ -12,9 +14,32 @@ function Project(name, url, image, description){
   projects.push(this);
 }
 
+Project.prototype.toHtml = function(){
+  ///displays name, url, image, and description
+  $('#project-image').attr('src', this.image);
+  $('#project-name').text(this.name);
+  $('#project-url').attr('href', this.url).text(this.url);
+  $('#project-description').text(this.description);
+};
+
+///click event for project Next button
+function featureDisplay(){
+  var index = projects.length - 1;
+  projects[index].toHtml();
+
+  $('#next-button').click(function(){
+    index +=1;
+    if(index < projects.length){
+      projects[index].toHtml();
+    }else {
+      index = 0;
+      projects[index].toHtml();
+    }
+  });
+}
 
 ///hamburger menu closes if you click it a second time
-$(document).ready(function(){
+function hamburgerMenu(){
   var click = 0;  ///number of times hamburger menu has been clicked
   var viewPort = $(window).width();
 
@@ -33,4 +58,9 @@ $(document).ready(function(){
       $('.navigation li').css('display', 'inline');
     }
   });
+}
+
+$(document).ready(function(){
+  hamburgerMenu();
+  featureDisplay();
 });

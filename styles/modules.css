@@ -1,5 +1,5 @@
 #project-display {
-  background-color: lightgrey;
+  background-color: white;
 }
 
 .icon-menu{
@@ -14,4 +14,13 @@
 a.icon-menu {
   text-decoration: none;
   color: white;
+}
+
+.menu {
+  width: 100%;
+  background-color: black;
+}
+
+.template {
+  display: none;
 }

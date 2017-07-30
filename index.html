@@ -12,17 +12,8 @@
   </head>
   <body>
     <h1>Project Portfolio</h1>
-    <section class="navigation">
-      <a href="#" class="icon-menu"></a>
-      <ul>
-        <li>GitHub</li>
-        <li>Project Portfolio</li>
-      </ul>
-      <ul>
-        <li>Linkedin</li>
-        <li>DeviantArt</li>
-      </ul>
-    </section>
+    <p class="menu"><a href="#" class="icon-menu"></a></p>
+    <section class="navigation"></section>
     <section id="intro">
       <div id="intro-image">
         <img src="assets/the_writer_cropped.png" alt="The Writer" />
@@ -37,25 +28,21 @@
       </div>
       <div id="project-display">
         <img src="" alt="" id="project-image">
-        <p id="project-text">Suspendisse sed nisi eu augue commodo auctor. Cras a odio a nisi finibus consequat sit amet nec lacus. Aliquam luctus erat in lorem congue, in luctus massa congue.</p>
+        <p class="project-text" id="project-name">Project Name</p>
+        <p><a href="#" class="project-text" id="project-url">Url</a></p>
+        <p class="project-text" id="project-description">Description</p>
+        <button id="next-button">Next</button>
       </div>
     </section>
-    <section class="navigation">
-      <ul>
-        <li>GitHub</li>
-        <li>Project Portfolio</li>
-      </ul>
-      <ul>
-        <li>Linkedin</li>
-        <li>DeviantArt</li>
-      </ul>
-    </section>
+    <section class="navigation"></section>
     <section id="footer">
       <p>&copy; Raegan Millhollin,<span id="current-year">2017</span></p>
     </section>
 
 
     <script type="text/javascript" src="vendor/scripts/jquery-3.2.1.min.js"></script>
+    <script src="scripts/navigation.js" charset="utf-8"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
+    <script src="scripts/projects.js" charset="utf-8"></script>
   </body>
 </html>
