@@ -36,6 +36,13 @@
   padding: 2%;
 }
 
+@media (min-width: 600px) {
+  #project-image {
+    width: 347px;
+    height: 275px;
+  }
+}
+
 @media (min-width:800px) {
   /*Stuff for desktop view goes here*/
   .navigation {
