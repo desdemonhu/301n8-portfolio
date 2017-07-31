@@ -20,6 +20,7 @@ function homeClick(){
   $('li:contains("Home")').on('click', function(event){
     event.preventDefault();
     $('#intro').show();
+    $('#intro').find('img').show();
     $('#project-feature').show();
     $('#footer').prev().show();
     $('#footer').show();
@@ -32,8 +33,12 @@ function homeClick(){
 function aboutClick(){
   $('li:contains("About")').on('click', function(event){
     event.preventDefault();
-    $('li:contains("Home")').triggerHandler('click'); //brings home elements back up
-    window.location.hash = 'intro-text';
+    $('#project-feature').show();
+    $('#intro').show();
+    $('#intro').find('img').hide();
+    $('.projects-displayed').each(function(){
+      $(this).addClass('template');
+    });
   });
 }
 
