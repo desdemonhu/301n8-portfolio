@@ -108,6 +108,7 @@ $(document).ready(function(){
   hamburgerMenu();
   featureDisplay();
   portfolioClick();
+  homeClick();
 
   for(var i = 0; i < projects.length; i++){
     projects[i].displayProjectsPage();
