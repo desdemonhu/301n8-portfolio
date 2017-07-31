@@ -21,7 +21,7 @@ Project.prototype.toHtml = function(){
   $('#project-image').attr('src', this.image);
   $('#project-name').text(this.name);
   $('#project-url').attr('href', this.url).text(this.url);
-  $('#project-description').text(this.description);
+  $('#project-description').html(this.description);
 };
 
 Project.prototype.calculateDaysAgo = function(){
@@ -45,7 +45,7 @@ Project.prototype.displayProjectsPage = function(){
   $project.find('#project-image').attr('src', this.image);
   $project.find('#project-name').text(this.name);
   $project.find('#project-url').attr('href', this.url).text(this.url);
-  $project.find('#project-description').text(this.description);
+  $project.find('#project-description').html(this.description);
   $project.attr('data-language', this.language);
   if(this.calculateDaysAgo() === 0){
     ///if Published date is in the future just display in progress
@@ -54,6 +54,22 @@ Project.prototype.displayProjectsPage = function(){
     $project.find('#published').text(this.calculateDaysAgo());
   }
   $('body').append($project);
+}
+
+function showMoreOrLess(){
+  $('.projects-displayed').find('p:nth-of-type(n+3)').hide();
+
+  $('.projects-displayed').on('click','.expand', function(event){
+    event.preventDefault();
+    var expandText = $(this).text();
+    if(expandText === 'Expand'){
+      $(this).parent().children('#project-description').children().fadeIn('fast');
+      $(this).text('Show less');
+    }else {
+      $('.projects-displayed').find('p:nth-of-type(n+3)').hide();
+      $(this).text('Expand');
+    }
+  })
 }
 
 ///click event for project Next button
@@ -114,4 +130,5 @@ $(document).ready(function(){
   for(var i = 0; i < projects.length; i++){
     projects[i].displayProjectsPage();
   }
+  showMoreOrLess();
 });
