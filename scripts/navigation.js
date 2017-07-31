@@ -1,6 +1,6 @@
 'use strict';
 
-var navigationString = '<ul><li><a href="https://github.com/desdemonhu">GitHub<a></li><li><a href="#">Project Portfolio</a></li><li><a href="#">Home</a></li></ul><ul><li><a href="https://www.linkedin.com/in/raegan-millhollin-2a3647b">Linkedin</a></li><li><a href="http://desdemonhu.deviantart.com/">DeviantArt</a></li></ul>'
+var navigationString = '<ul><li><a href="https://github.com/desdemonhu">GitHub<a></li><li><a href="#">Project Portfolio</a></li><li><a href="#">Home</a></li><li><a href="#">About</a></li><li><a href="https://www.linkedin.com/in/raegan-millhollin-2a3647b">Linkedin</a></li><li><a href="http://desdemonhu.deviantart.com/">DeviantArt</a></li></ul>'
 
 function portfolioClick(){
   $('li:contains("Project")').on('click', function(event){
@@ -26,6 +26,14 @@ function homeClick(){
     $('.projects-displayed').each(function(){
       $(this).addClass('template');
     });
+  });
+}
+
+function aboutClick(){
+  $('li:contains("About")').on('click', function(event){
+    event.preventDefault();
+    $('li:contains("Home")').triggerHandler('click'); //brings home elements back up
+    window.location.hash = 'intro-text';
   });
 }
 
