@@ -24,3 +24,9 @@ a.icon-menu {
 .template {
   display: none;
 }
+
+#project-image {
+  display: inline;
+  width: 347px;
+  height: 275px;
+}

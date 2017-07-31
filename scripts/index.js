@@ -4,11 +4,13 @@ var projects = [];
 
 
 ///constructor function for project information
-function Project(name, url, image, description){
+function Project(name, url, image, description, language, published){
   this.name = name;
   this.url = url;
   this.image = image;
   this.description = description;
+  this.language = language;
+  this.published = published;
 
   ///automatically push new one to the array
   projects.push(this);
@@ -21,6 +23,19 @@ Project.prototype.toHtml = function(){
   $('#project-url').attr('href', this.url).text(this.url);
   $('#project-description').text(this.description);
 };
+
+Project.prototype.calculateDaysAgo = function(){
+  var oneDay = 24*60*60*1000;
+  var published = new Date(this.published);
+  var todaysDate = new Date();
+  var daysAgo = Math.round(Math.abs((published.getTime()-todaysDate.getTime())/oneDay));
+
+  if(todaysDate < published){
+    return 0;
+  }else {
+    return daysAgo;
+  }
+}
 
 ///click event for project Next button
 function featureDisplay(){
