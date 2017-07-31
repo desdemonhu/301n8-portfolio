@@ -1,6 +1,6 @@
 'use strict';
 
-var navigationString = '<ul><li><a href="https://github.com/desdemonhu">GitHub<a></li><li><a href="#">Project Portfolio</a></li><li><a href="#">Home</a></li><li><a href="#">About</a></li><li><a href="https://www.linkedin.com/in/raegan-millhollin-2a3647b">Linkedin</a></li><li><a href="http://desdemonhu.deviantart.com/">DeviantArt</a></li></ul>'
+var navigationString = '<ul><li><a href="#">Home</a></li><li><a href="#">About</a></li><li><a href="#">Project Portfolio</a></li><li><a href="https://github.com/desdemonhu" target="_blank">GitHub<a></li><li><a href="https://www.linkedin.com/in/raegan-millhollin-2a3647b" target="_blank">Linkedin</a></li><li><a href="http://desdemonhu.deviantart.com/" target="_blank">DeviantArt</a></li></ul>'
 
 function portfolioClick(){
   $('li:contains("Project")').on('click', function(event){
