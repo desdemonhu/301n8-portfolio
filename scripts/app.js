@@ -14,6 +14,12 @@ function Project(name, url, image, description, language, published){
   this.published = published;
   this.daysAgo = this.calculateDaysAgo();
 
+  if(this.daysAgo === 0){
+    this.daysAgo = 'In Progress';
+  } else {
+    this.daysAgo = this.daysAgo + ' days ago';
+  }
+
   ///automatically push new one to the array
   projects.push(this);
 }
