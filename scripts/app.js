@@ -89,27 +89,7 @@ function featureDisplay(){
   });
 }
 
-///hamburger menu closes if you click it a second time
-function hamburgerMenu(){
-  var click = 0;  ///number of times hamburger menu has been clicked
-  var viewPort = $(window).width();
 
-  $('.icon-menu').click(function(){
-    click += 1;
-    viewPort = $(window).width();
-
-    if(click % 2 === 0){
-      $('.navigation ul').css('display', 'none');
-    } else if (viewPort < 400) {
-      ///If the screen is less than 400px, it displays the menu vertically
-      $('.navigation ul').css('display', 'block');
-      $('.navigation li').css('display', 'block');
-    } else {
-      $('.navigation ul').css('display', 'inline');
-      $('.navigation li').css('display', 'inline');
-    }
-  });
-}
 
 ///Sorts the projects array by most recent Published date
 projectView.sortProjects = function(){
@@ -125,7 +105,7 @@ projectView.sortProjects = function(){
 
 $(document).ready(function(){
   projectView.sortProjects();
-  hamburgerMenu();
+  navigationFunctions.hamburgerMenu();
   featureDisplay();
   navigationFunctions.portfolioClick();
   navigationFunctions.homeClick();
