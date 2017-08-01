@@ -34,9 +34,7 @@ navigationFunctions.portfolioClick = function(){
     $('#footer').prev().hide();
     $('#footer').hide();
     ///Shows project list
-    $('.projects-displayed').each(function(){
-      $(this).removeClass('template');
-    });
+    $('#content-placeholder').fadeIn('slow');
   })
 }
 
@@ -48,9 +46,7 @@ navigationFunctions.homeClick = function(){
     $('#project-feature').show();
     $('#footer').prev().show();
     $('#footer').show();
-    $('.projects-displayed').each(function(){
-      $(this).addClass('template');
-    });
+    $('#content-placeholder').hide();
   });
 }
 
@@ -60,9 +56,7 @@ navigationFunctions.aboutClick = function(){
     $('#project-feature').show();
     $('#intro').show();
     $('#intro').find('img').hide();
-    $('.projects-displayed').each(function(){
-      $(this).addClass('template');
-    });
+    $('#content-placeholder').hide();
   });
 }
 

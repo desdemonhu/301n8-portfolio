@@ -12,6 +12,7 @@ function Project(name, url, image, description, language, published){
   this.description = description;
   this.language = language;
   this.published = published;
+  this.daysAgo = this.calculateDaysAgo();
 
   ///automatically push new one to the array
   projects.push(this);
@@ -58,16 +59,16 @@ Project.prototype.displayProjectsPage = function(){
 }
 
 projectView.showMoreOrLess = function(){
-  $('.projects-displayed').find('p:nth-of-type(n+3)').hide();
+  $('.projects-displayed').find('p:nth-of-type(n+2)').hide();
 
   $('.projects-displayed').on('click','.expand', function(event){
     event.preventDefault();
     var expandText = $(this).text();
     if(expandText === 'Expand'){
-      $(this).parent().children('#project-description').children().fadeIn('fast');
+      $(this).parent().children('.description').children().fadeIn('fast');
       $(this).text('Show less');
     }else {
-      $('.projects-displayed').find('p:nth-of-type(n+3)').hide();
+      $('.projects-displayed').find('p:nth-of-type(n+2)').hide();
       $(this).text('Expand');
     }
   })
@@ -126,11 +127,19 @@ projectView.sortProjects = function(){
   })
 }
 
-///populate language field
+///handlebars template for projects
+$(function(){
+  projectView.sortProjects();
+  var templateScript = $('#handlebar-template').html();
+  var template = Handlebars.compile(templateScript);
+  var compiledHtml = template(projects);
+  console.log(projects);
+  $('#content-placeholder').html(compiledHtml);
+});
 
 
 $(document).ready(function(){
-  projectView.sortProjects();
+
   navigationFunctions.hamburgerMenu();
   featureDisplay();
   navigationFunctions.portfolioClick();

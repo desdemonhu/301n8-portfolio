@@ -12,6 +12,17 @@
     <script src="vendor/scripts/handlebars-v4.0.10.js" charset="utf-8"></script>
   </head>
   <body>
+    <script id="handlebar-template" type="text/x-handlebars-template">
+      {{#each this}}
+      <div class="project-text projects-displayed">
+        <img class="project-image" src="{{image}}" alt="">
+        <h2><a href="{{url}}">{{name}}</a></h2>
+        <p>Last updated: {{daysAgo}} days ago</p>
+        <section class="description">{{{description}}}</section>
+        <a href="#" class="expand">Expand</a>&rarr;
+        {{/each}}
+    </script>
+
     <h1>Project Portfolio</h1>
     <p class="menu"><a href="#" class="icon-menu"></a></p>
     <section class="navigation"></section>
@@ -43,6 +54,10 @@
         </select>
       </li>
     </ul>
+    <section class="project-text">
+      <div id="content-placeholder">
+      </div>
+    </section>
     <section class="template" id="projects">
       <div id="project-display">
         <img src="" alt="" id="project-image">
@@ -63,5 +78,7 @@
     <script src="scripts/navigation.js" charset="utf-8"></script>
     <script src="scripts/app.js" charset="utf-8"></script>
     <script src="scripts/projects.js" charset="utf-8"></script>
+
+
   </body>
 </html>

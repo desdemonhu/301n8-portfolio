@@ -25,7 +25,11 @@ a.icon-menu {
   display: none;
 }
 
-#project-image {
+.project-image {
   display: inline;
   width: 100%;
+}
+
+#content-placeholder {
+  display: none;
 }
