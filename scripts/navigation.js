@@ -1,8 +1,10 @@
 'use strict';
 
+var navigationFunctions = {};
+
 var navigationString = '<ul><li><a href="#">Home</a></li><li><a href="#">About</a></li><li><a href="#">Project Portfolio</a></li><li><a href="https://github.com/desdemonhu" target="_blank">GitHub<a></li><li><a href="https://www.linkedin.com/in/raegan-millhollin-2a3647b" target="_blank">Linkedin</a></li><li><a href="http://desdemonhu.deviantart.com/" target="_blank">DeviantArt</a></li></ul>'
 
-function portfolioClick(){
+navigationFunctions.portfolioClick = function(){
   $('li:contains("Project")').on('click', function(event){
     event.preventDefault();
     $('#project-feature').hide();
@@ -16,7 +18,7 @@ function portfolioClick(){
   })
 }
 
-function homeClick(){
+navigationFunctions.homeClick = function(){
   $('li:contains("Home")').on('click', function(event){
     event.preventDefault();
     $('#intro').show();
@@ -30,7 +32,7 @@ function homeClick(){
   });
 }
 
-function aboutClick(){
+navigationFunctions.aboutClick = function(){
   $('li:contains("About")').on('click', function(event){
     event.preventDefault();
     $('#project-feature').show();

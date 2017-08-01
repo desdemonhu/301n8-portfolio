@@ -1,7 +1,8 @@
 'use strict';
 ///array of all projects
 var projects = [];
-
+///object where functions to show projects on "project"
+var projectView = {};
 
 ///constructor function for project information
 function Project(name, url, image, description, language, published){
@@ -56,7 +57,7 @@ Project.prototype.displayProjectsPage = function(){
   $('body').append($project);
 }
 
-function showMoreOrLess(){
+projectView.showMoreOrLess = function(){
   $('.projects-displayed').find('p:nth-of-type(n+3)').hide();
 
   $('.projects-displayed').on('click','.expand', function(event){
@@ -111,7 +112,7 @@ function hamburgerMenu(){
 }
 
 ///Sorts the projects array by most recent Published date
-function sortProjects(){
+projectView.sortProjects = function(){
   projects.sort(function(a,b){
     var aDate = new Date(a.published);
     var bDate = new Date(b.published);
@@ -119,16 +120,19 @@ function sortProjects(){
   })
 }
 
+///populate language field
+
+
 $(document).ready(function(){
-  sortProjects();
+  projectView.sortProjects();
   hamburgerMenu();
   featureDisplay();
-  portfolioClick();
-  homeClick();
-  aboutClick();
+  navigationFunctions.portfolioClick();
+  navigationFunctions.homeClick();
+  navigationFunctions.aboutClick();
 
   for(var i = 0; i < projects.length; i++){
     projects[i].displayProjectsPage();
   }
-  showMoreOrLess();
+  projectView.showMoreOrLess();
 });
