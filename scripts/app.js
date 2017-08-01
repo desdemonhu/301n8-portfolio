@@ -73,6 +73,34 @@ projectView.showMoreOrLess = function(){
   })
 }
 
+projectView.populateFilter = function(){
+  $('.projects-displayed').each(function(){
+    if($(this).hasClass('projects-displayed')){
+      ///TODO: code goes here populate filter
+      var language = $(this).attr('data-language');
+      var optionTag = '<option value="' + language + '">' + language + '</option>';
+      if($('#filter-language option[value="' + language + '"]').length === 0){
+        $('#filter-language').append(optionTag);
+      }
+    }
+  });
+}
+
+projectView.filterChange = function(){
+  $('#filter-language').on('change', function(){
+    ///look at category that was selected to get name value. filter data-language by that name
+    var languageName = $(this).val();
+
+    if(languageName){
+      $('.projects-displayed').hide();
+      ///TODO: Nothing shows even though the data type matches.FIX
+      $('.projects-displayed').filter('data-language[value="' + languageName + '"]').fadeIn('fast');
+    }else {
+      $('.projects-displayed').fadeIn('fast');
+    }
+  });
+}
+
 ///click event for project Next button
 function featureDisplay(){
   var index = projects.length - 1;
@@ -88,8 +116,6 @@ function featureDisplay(){
     }
   });
 }
-
-
 
 ///Sorts the projects array by most recent Published date
 projectView.sortProjects = function(){
@@ -115,4 +141,6 @@ $(document).ready(function(){
     projects[i].displayProjectsPage();
   }
   projectView.showMoreOrLess();
+  projectView.populateFilter();
+  projectView.filterChange();
 });
