@@ -56,6 +56,9 @@
 
 @media (min-width:800px) {
   /*Stuff for desktop view goes here*/
+  body{
+    background-color: white;
+  }
   .navigation {
     position: relative;
     padding: 1%;
@@ -63,12 +66,26 @@
 
   .navigation ul{
     display: inline;
-    margin-left: 10%;
+    margin-left: 25%;
   }
   .icon-menu{
     display: none;
   }
   .navigation li {
     font-size: 2em;
+  }
+  .project-image {
+    width: 347px;
+    height: 275px
+  }
+  #project-feature {
+    display: none;
+  }
+  #content-placeholder {
+    display: inline-block;
+    position: relative;
+    margin-top: 2%;
+    margin-left: 33%;
+    margin-right: 20%;
   }
 }

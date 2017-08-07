@@ -61,10 +61,10 @@ h1 {
 
 h2 {
 	padding: 1% 3%;
-		font-size: 1.2em;
+	font-size: 1.2em;
 }
 
-p {
+p, .expand {
 	padding: 1% 2%;
 	font-size: 1.0em;
 	font-family: 'Open Sans Condensed', sans-serif;

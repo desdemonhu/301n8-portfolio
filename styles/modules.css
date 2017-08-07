@@ -37,3 +37,8 @@ a.icon-menu {
 #content-placeholder {
   display: none;
 }
+
+.project-text a {
+  text-decoration: none;
+  font-size: 1.4em;
+}
