@@ -26,7 +26,7 @@ function Project(name, url, image, description, language, published){
 
 Project.prototype.toHtml = function(){
   ///displays name, url, image, and description
-  $('#project-image').attr('src', this.image);
+  $('#feature-image').attr('src', this.image);
   $('#project-name').text(this.name);
   $('#project-url').attr('href', this.url).text(this.url);
   $('#project-description').html(this.description);
@@ -46,28 +46,28 @@ Project.prototype.calculateDaysAgo = function(){
 }
 
 ///display projects on project page
-Project.prototype.displayProjectsPage = function(){
-  var $project = $('#projects').clone();
-  //published number of days ago calculations
-  $project.addClass('projects-displayed');
-  $project.find('#project-image').attr('src', this.image);
-  $project.find('#project-name').text(this.name);
-  $project.find('#project-url').attr('href', this.url).text(this.url);
-  $project.find('#project-description').html(this.description);
-  $project.attr('data-language', this.language);
-  if(this.calculateDaysAgo() === 0){
-    ///if Published date is in the future just display in progress
-    $project.find('#published').parent().text('In Progress');
-  }else {
-    $project.find('#published').text(this.calculateDaysAgo());
-  }
-  $('body').append($project);
-}
+// Project.prototype.displayProjectsPage = function(){
+//   var $project = $('#projects').clone();
+//   //published number of days ago calculations
+//   $project.addClass('projects-displayed');
+//   $project.find('#feature-image').attr('src', this.image);
+//   $project.find('#project-name').text(this.name);
+//   $project.find('#project-url').attr('href', this.url).text(this.url);
+//   $project.find('#project-description').html(this.description);
+//   $project.attr('data-language', this.language);
+//   if(this.calculateDaysAgo() === 0){
+//     ///if Published date is in the future just display in progress
+//     $project.find('#published').parent().text('In Progress');
+//   }else {
+//     $project.find('#published').text(this.calculateDaysAgo());
+//   }
+//   $('body').append($project);
+// }
 
 projectView.showMoreOrLess = function(){
   $('.projects-displayed').find('p:nth-of-type(n+2)').hide();
 
-  $('.projects-displayed').on('click','.expand', function(event){
+  $('#content-placeholder').on('click','.expand', function(event){
     event.preventDefault();
     var expandText = $(this).text();
     if(expandText === 'Expand'){
@@ -152,9 +152,9 @@ $(document).ready(function(){
   navigationFunctions.homeClick();
   navigationFunctions.aboutClick();
 
-  for(var i = 0; i < projects.length; i++){
-    projects[i].displayProjectsPage();
-  }
+  // for(var i = 0; i < projects.length; i++){
+  //   projects[i].displayProjectsPage();
+  // }
   projectView.showMoreOrLess();
   projectView.populateFilter();
   projectView.filterChange();

@@ -25,7 +25,7 @@ a.icon-menu {
   display: none;
 }
 
-.project-image {
+.project-image, #feature-image{
   display: inline;
   width: 100%;
 }
