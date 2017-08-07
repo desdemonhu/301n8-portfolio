@@ -8,6 +8,7 @@
 
 .navigation, .navigation-social {
   position: relative;
+  align-self: center;
   background-color: black;
   color: white;
 }
@@ -44,6 +45,12 @@
   #feature-image {
     width: 347px;
     height: 275px;
+  }
+  #project-display {
+    position: relative;
+    align-self: center;
+    padding-left: 30%;
+    padding-right: 20%;
   }
 }
 

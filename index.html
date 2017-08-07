@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="styles/modules.css" />
     <link rel="stylesheet" href="styles/layout.css" />
     <link rel="stylesheet" href="styles/theme.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <script src="vendor/scripts/handlebars-v4.0.10.js" charset="utf-8"></script>
   </head>
   <body>
+    <!--- Handlebars template -->
     <script id="handlebar-template" type="text/x-handlebars-template">
       {{#each this}}
       <div class="projects-displayed project-text" data-language="{{language}}">
@@ -23,7 +25,6 @@
         {{/each}}
     </script>
 
-    <h1>Project Portfolio</h1>
     <p class="menu"><a href="#" class="icon-menu"></a></p>
     <section class="navigation"></section>
     <section id="intro">
@@ -31,7 +32,7 @@
         <img src="assets/the_writer_cropped.png" alt="The Writer" />
       </div>
       <div id="intro-text">
-        <h2>About Me</h2>
+        <h1>About Me</h1>
         <p>Vestibulum non convallis purus. Aliquam vestibulum nulla vel neque euismod vulputate. Integer vitae turpis nunc. Curabitur ut leo vulputate, rutrum ipsum a, euismod velit. Quisque at est id erat dignissim sodales vel vel risus. Etiam a aliquam eros. Suspendisse sed nisi eu augue commodo auctor. Cras a odio a nisi finibus consequat sit amet nec lacus. Aliquam luctus erat in lorem congue, in luctus massa congue. Nullam quis nunc pretium, molestie leo et, viverra nulla.</p>
       </div>
     </section>

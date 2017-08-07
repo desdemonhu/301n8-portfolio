@@ -52,3 +52,30 @@ table {
 body{
 	background-color: lightgrey;
 }
+
+h1 {
+	padding: 2% 5%;
+	font-size: 1.6em;
+	text-align: center;
+}
+
+h2 {
+	padding: 1% 3%;
+		font-size: 1.2em;
+}
+
+p {
+	padding: 1% 2%;
+	font-size: 1.0em;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+button {
+	position: relative;
+	margin: 2% 35%;
+	padding: 2% 8%;
+	border: 2px solid black;
+	background-color: red;
+	color: white;
+	text-align: center;
+}
