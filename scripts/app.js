@@ -83,7 +83,6 @@ projectView.showMoreOrLess = function(){
 projectView.populateFilter = function(){
   $('.projects-displayed').each(function(){
     if($(this).hasClass('projects-displayed')){
-      ///TODO: code goes here populate filter
       var language = $(this).attr('data-language');
       var optionTag = '<option value="' + language + '">' + language + '</option>';
       if($('#filter-language option[value="' + language + '"]').length === 0){
@@ -97,11 +96,12 @@ projectView.filterChange = function(){
   $('#filter-language').on('change', function(){
     ///look at category that was selected to get name value. filter data-language by that name
     var languageName = $(this).val();
+    console.log(languageName);
 
     if(languageName){
       $('.projects-displayed').hide();
-      ///TODO: Nothing shows even though the data type matches.FIX
-      $('.projects-displayed').filter('data-language[value="' + languageName + '"]').fadeIn('fast');
+      ///TODO: Doesn't work for ANDA for some reason even though it will work for other projects if I change their language to GameMaker Studio
+      $('.projects-displayed').filter('div[data-language="' + languageName + '"]').fadeIn('fast');
     }else {
       $('.projects-displayed').fadeIn('fast');
     }
