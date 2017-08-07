@@ -2,7 +2,9 @@
 
 var navigationFunctions = {};
 
-var navigationString = '<ul><li><a href="#">Home</a></li><li><a href="#">About</a></li><li><a href="#">Project Portfolio</a></li><li><a href="https://github.com/desdemonhu" target="_blank">GitHub<a></li><li><a href="https://www.linkedin.com/in/raegan-millhollin-2a3647b" target="_blank">Linkedin</a></li><li><a href="http://desdemonhu.deviantart.com/" target="_blank">DeviantArt</a></li></ul>'
+var navigationString = '<ul><li><a href="#">Home</a></li><li><a href="#">About</a></li><li><a href="#">Project Portfolio</a></li></ul>'
+
+var socialMediaString = '<ul><li><a href="https://github.com/desdemonhu" target="_blank">GitHub<a></li><li><a href="https://www.linkedin.com/in/raegan-millhollin-2a3647b" target="_blank">Linkedin</a></li><li><a href="http://desdemonhu.deviantart.com/" target="_blank">DeviantArt</a></li></ul>'
 
 ///hamburger menu closes if you click it a second time
 navigationFunctions.hamburgerMenu = function(){
@@ -29,6 +31,7 @@ navigationFunctions.hamburgerMenu = function(){
 navigationFunctions.portfolioClick = function(){
   $('li:contains("Project")').on('click', function(event){
     event.preventDefault();
+    $('#filter-language').show();
     $('#project-feature').hide();
     $('#intro').hide();
     $('#footer').prev().hide();
@@ -62,4 +65,5 @@ navigationFunctions.aboutClick = function(){
 
 $(document).ready(function(){
   $('.navigation').html(navigationString);
+  $('.navigation-social').html(socialMediaString);
 });

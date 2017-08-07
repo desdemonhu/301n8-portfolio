@@ -1,18 +1,18 @@
 
 /*moves picture over to right-hand side of page when screen is big enough*/
 
-.navigation li, .navigation ul{
+.navigation li, .navigation ul, .navigation-social li{
   display: inline;
   padding: 2%;
 }
 
-.navigation {
+.navigation, .navigation-social {
   position: relative;
   background-color: black;
   color: white;
 }
 
-.navigation a {
+.navigation a, .navigation-social a {
   text-decoration: none;
   color: white;
 }
@@ -34,6 +34,10 @@
 #intro-image img {
   width: 96%;
   padding: 2%;
+}
+
+#filter-language {
+  display: none;
 }
 
 @media (min-width: 600px) {

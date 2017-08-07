@@ -11,6 +11,10 @@
   font-size: 100%;
 }
 
+.navigation-social {
+  font-size: 1.4em;
+}
+
 a.icon-menu {
   text-decoration: none;
   color: white;
