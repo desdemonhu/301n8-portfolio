@@ -1,4 +1,4 @@
-#project-display {
+#project-feature {
   background-color: white;
 }
 
@@ -9,6 +9,10 @@
 
 .navigation li {
   font-size: 100%;
+}
+
+.navigation-social {
+  font-size: 1.4em;
 }
 
 a.icon-menu {
@@ -23,4 +27,18 @@ a.icon-menu {
 
 .template {
   display: none;
+}
+
+.project-image, #feature-image{
+  display: inline;
+  width: 100%;
+}
+
+#content-placeholder {
+  display: none;
+}
+
+.project-text a {
+  text-decoration: none;
+  font-size: 1.4em;
 }
