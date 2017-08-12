@@ -129,9 +129,9 @@ $(document).ready(function(){
 
   navigationFunctions.hamburgerMenu();
   featureDisplay();
-  navigationFunctions.portfolioClick();
-  navigationFunctions.homeClick();
-  navigationFunctions.aboutClick();
+  // navigationFunctions.portfolioClick();
+  // navigationFunctions.homeClick();
+  // navigationFunctions.aboutClick();
 
   projectView.showMoreOrLess();
   projectView.populateFilter();

@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="styles/theme.css" />
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Open+Sans+Condensed:300" rel="stylesheet">
     <script src="vendor/scripts/handlebars-v4.0.10.js" charset="utf-8"></script>
-  </head>
-  <body>
+
     <!--- Handlebars template -->
     <script id="handlebar-template" type="text/x-handlebars-template">
       {{#each this}}
@@ -26,8 +25,15 @@
         {{/each}}
     </script>
 
-    <p class="menu"><a href="#" class="icon-menu"></a></p>
-    <section class="navigation"></section>
+  </head>
+  <body>
+    <nav class="menu">
+      <a href="#" class="icon-menu"></a>
+      <section class="navigation"></section>
+    </nav>
+
+    <section class="tab-content">
+
     <section id="intro">
       <div id="intro-image">
         <img src="assets/the_writer_cropped.png" alt="The Writer" />
@@ -61,6 +67,8 @@
       <div id="content-placeholder">
       </div>
     </section>
+
+  </section> <!--End of tab -->
     <section class="navigation-social"></section>
     <section id="footer">
       <p>&copy; Raegan Millhollin,<span id="current-year">2017</span></p>
