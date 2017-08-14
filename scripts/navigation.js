@@ -2,7 +2,7 @@
 
 var navigationFunctions = {};
 
-var navigationString = '<ul><li data-content="intro"><a href="#">Home</a></li><li data-content="intro-text"><a href="#">About</a></li><li data-content="content-placeholder"><a href="#">Project Portfolio</a></li></ul>'
+var navigationString = '<ul><li data-content="intro"><a href="#">Home</a></li><li data-content="about"><a href="#">About</a></li><li data-content="content-placeholder"><a href="#">Project Portfolio</a></li></ul>'
 
 var socialMediaString = '<ul><li><a href="https://github.com/desdemonhu" target="_blank">GitHub<a></li><li><a href="https://www.linkedin.com/in/raegan-millhollin-2a3647b" target="_blank">Linkedin</a></li><li><a href="http://desdemonhu.deviantart.com/" target="_blank">DeviantArt</a></li></ul>'
 
@@ -44,8 +44,9 @@ navigationFunctions.portfolioClick = function(){
 navigationFunctions.mainNav = function(){
   $('.navigation').on('click', 'li', function(e){
     e.preventDefault();
-    $('.tab-content').hide();
-    $('.tab-content #' + $(this).data('content')).fadeIn();
+    $('.tab-content').children().hide();
+    $('.tab-content').children(`#${$(this).data('content')}`).fadeIn();
+    // $(`#${contentType}`).fadeIn();
   });
 }
 
