@@ -121,7 +121,7 @@ $(function(){
   var template = Handlebars.compile(templateScript);
   var compiledHtml = template(projects);
   console.log(projects);
-  $('#content-placeholder').html(compiledHtml);
+  $('#content-placeholder').append(compiledHtml);
 });
 
 
