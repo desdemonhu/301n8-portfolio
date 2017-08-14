@@ -1,6 +1,3 @@
-
-/*moves picture over to right-hand side of page when screen is big enough*/
-
 .navigation li, .navigation ul, .navigation-social li{
   display: inline;
   padding: 2%;

@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="styles/theme.css" />
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Open+Sans+Condensed:300" rel="stylesheet">
     <script src="vendor/scripts/handlebars-v4.0.10.js" charset="utf-8"></script>
-  </head>
-  <body>
+
     <!--- Handlebars template -->
     <script id="handlebar-template" type="text/x-handlebars-template">
       {{#each this}}
@@ -26,16 +25,28 @@
         {{/each}}
     </script>
 
-    <p class="menu"><a href="#" class="icon-menu"></a></p>
-    <section class="navigation"></section>
+  </head>
+  <body>
+    <nav class="menu">
+      <a href="#" class="icon-menu"></a>
+      <section class="navigation"></section>
+    </nav>
+
+    <section class="tab-content">
+
     <section id="intro">
       <div id="intro-image">
         <img src="assets/the_writer_cropped.png" alt="The Writer" />
       </div>
       <div id="intro-text">
-        <h1>About Me</h1>
-        <p>Vestibulum non convallis purus. Aliquam vestibulum nulla vel neque euismod vulputate. Integer vitae turpis nunc. Curabitur ut leo vulputate, rutrum ipsum a, euismod velit. Quisque at est id erat dignissim sodales vel vel risus. Etiam a aliquam eros. Suspendisse sed nisi eu augue commodo auctor. Cras a odio a nisi finibus consequat sit amet nec lacus. Aliquam luctus erat in lorem congue, in luctus massa congue. Nullam quis nunc pretium, molestie leo et, viverra nulla.</p>
+        <h1>Project Portfolio</h1>
+        <p>Vestibulum non convallis purus. Aliquam vestibulum nulla vel neque euismod vulputate. Integer vitae turpis nunc. Curabitur ut leo vulputate, rutrum ipsum a, euismod velit. </p>
       </div>
+    </section>
+    <section id="about" class="project-text">
+      <h1>About Me</h1>
+      <p>This is a section about me</p>
+      <p>Quisque at est id erat dignissim sodales vel vel risus. Etiam a aliquam eros. Suspendisse sed nisi eu augue commodo auctor. Cras a odio a nisi finibus consequat sit amet nec lacus. Aliquam luctus erat in lorem congue, in luctus massa congue. Nullam quis nunc pretium, molestie leo et, viverra nulla.</p>
     </section>
     <section id="project-feature">
       <div class="project-text">
@@ -56,11 +67,10 @@
         </select>
       </li>
     </ul>
-    <section class="project-text">
-      <!-- projects go here -->
-      <div id="content-placeholder">
-      </div>
+    <section class="project-text" id="content-placeholder">
     </section>
+
+  </section> <!--End of tab -->
     <section class="navigation-social"></section>
     <section id="footer">
       <p>&copy; Raegan Millhollin,<span id="current-year">2017</span></p>
