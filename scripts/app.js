@@ -6,6 +6,7 @@ var projectView = {};
 
 ///constructor function for project information
 function Project(name, url, image, description, language, published){
+  ///TODO: redo this so that I don't have to put them individually in loadProjects
   this.name = name;
   this.url = url;
   this.image = image;
