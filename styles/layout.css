@@ -35,7 +35,7 @@
 }
 
 #filter-language {
-  display: none;
+  margin: 2%;
 }
 
 @media (min-width: 600px) {

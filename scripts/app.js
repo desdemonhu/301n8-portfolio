@@ -19,11 +19,9 @@ function Project(name, url, image, description, language, published){
   } else {
     this.daysAgo = this.daysAgo + ' days ago';
   }
-
-  ///automatically push new one to the array
-  projects.push(this);
 }
 
+///Display for feature project
 Project.prototype.toHtml = function(){
   ///displays name, url, image, and description for feature item
   $('#feature-image').attr('src', this.image);
@@ -115,24 +113,51 @@ projectView.sortProjects = function(){
 }
 
 ///handlebars template for projects
-$(function(){
+projectView.projectsDisplay = function(){
   projectView.sortProjects();
   var templateScript = $('#handlebar-template').html();
   var template = Handlebars.compile(templateScript);
   var compiledHtml = template(projects);
   console.log(projects);
-  $('#content-placeholder').html(compiledHtml);
-});
+  $('#content-placeholder').append(compiledHtml);
+};
 
+///Pull projects from JSON file or localStorage
+Project.loadProjects = function(rawData){
+  rawData.forEach(function(project){
+    projects.push(new Project(
+      project.name, project.url, project.image, project.description, project.language, project.published
+    ));
+  })
+}
+
+Project.fetchData = function(){
+  if(localStorage.jsonFile){
+    ///Get stringyfid date from localStorage
+    ///Project.loadProjects(parsed data)
+    Project.loadProjects(JSON.parse(localStorage.jsonFile));
+    ///call projectView.projectsDisplay
+    projectView.initProjectsDisplay();
+  }else{
+    ///Create localStorage.jsonFile
+    ///Load projects from JSON file
+    ///Call projectView.projectsDisplay
+    $.getJSON('data/projects.json', function(data){
+      localStorage.jsonFile = JSON.stringify(data);
+      Project.loadProjects(data);
+      projectView.initProjectsDisplay();
+    });
+  }
+}
+
+///prints out projects and then shows feature display
+projectView.initProjectsDisplay = function() {
+  projectView.projectsDisplay();
+  featureDisplay();
+}
 
 $(document).ready(function(){
-
-  navigationFunctions.hamburgerMenu();
-  featureDisplay();
-  // navigationFunctions.portfolioClick();
-  // navigationFunctions.homeClick();
-  // navigationFunctions.aboutClick();
-
+  Project.fetchData();
   projectView.showMoreOrLess();
   projectView.populateFilter();
   projectView.filterChange();
