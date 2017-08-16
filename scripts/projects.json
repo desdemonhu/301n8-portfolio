@@ -1,8 +1,0 @@
-[
-  {
-    "name":"Portfolio","url":"#","image":"","description":"<p>A portfolio of projects, focused on mobile-first design, SMACSS design principles, and reusability accross multiple projects.</p>","language":"JavaScript","published":"09/16/17"},
-  {
-    "name":"Cthulhu Bedtime Stories","url":"https://krichey15.github.io/cthulhu-bedtime/index.html","image":"https://krichey15.github.io/cthulhu-bedtime/assets/cthulhu-bedtime-stories-color.png","description":"<p>Collaborative project as final project for Code Fellows 201 class. A short choose-your-own adventure game where you get to make your own character.</p><p>This is a second paragraph</p><p>This is a third paragraph!</p>","language":"JavaScript","published":"07/15/17"},
-    {
-      "name":"ANDA(Demo)","url":"https://pumpkinpantaloons.itch.io/anda-demo","image":"https://img.itch.zone/aW1hZ2UvMTQ3ODk4LzY3NzMyOS5wbmc=/347x500/%2BkvzjR.png","description":"<p>A small point-and-click murder mystery game where you get to fight a dragon. Created in GameMaker Studio.</p>","language":"GameMaker Studio","published":"06/27/17"}
-]

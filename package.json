@@ -1,0 +1,25 @@
+{
+  "name": "301n8-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio of projects",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "testing",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desdemonhu/301n8-portfolio.git"
+  },
+  "author": "desdemonhu@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/desdemonhu/301n8-portfolio/issues"
+  },
+  "homepage": "https://github.com/desdemonhu/301n8-portfolio#readme"
+}
