@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 4000;
 
 
 app.use(express.static('public'));
-opn('http://localhost:4000');  ///automatically opens in default browser
+opn(`http://localhost:${PORT}`);  ///automatically opens in default browser
 
 // // (STRETCH) Write a new route that will handle a request and send the new.html file back to the user
 // app.get('/new', function(req, res){
