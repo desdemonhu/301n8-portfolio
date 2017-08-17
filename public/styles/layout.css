@@ -46,16 +46,20 @@
   #project-display {
     position: relative;
     align-self: center;
-    padding-left: 30%;
+    padding-left: 38%;
     padding-right: 20%;
+  }
+  #next-button {
+    margin-left: .5%;
+  }
+
+  body {
+    font-size: 1.5em;
   }
 }
 
 @media (min-width:800px) {
   /*Stuff for desktop view goes here*/
-  body{
-    background-color: white;
-  }
   .navigation {
     position: relative;
     padding: 1%;
@@ -73,16 +77,6 @@
   }
   .project-image {
     width: 347px;
-    height: 275px
-  }
-  #project-feature {
-    display: none;
-  }
-  #content-placeholder {
-    display: inline-block;
-    position: relative;
-    margin-top: 2%;
-    margin-left: 33%;
-    margin-right: 20%;
+    height: 275px;
   }
 }
