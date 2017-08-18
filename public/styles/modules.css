@@ -1,11 +1,12 @@
 #project-feature {
   color: black;
-  background-color: white;
+  background-color: lightgrey;
+  border-bottom: solid #485366;
 }
 
 .icon-menu{
   font-size: 1.6em;
-  color: white;
+  color: lightgrey;
 }
 
 .navigation li {
@@ -18,12 +19,12 @@
 
 a.icon-menu {
   text-decoration: none;
-  color: white;
+  color: lightgrey;
 }
 
 .menu {
   width: 100%;
-  background-color: black;
+  background-color: #485366;
 }
 
 .template {
