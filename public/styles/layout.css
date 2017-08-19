@@ -7,9 +7,7 @@
 }
 
 .navigation, .navigation-social {
-  margin: auto;
-  /*position: relative;
-  align-self: center;*/
+  text-align: center;
   background-color: #485366;
   color: white;
 }
@@ -47,6 +45,10 @@
   border-top: 4px solid black;
 }
 
+.next {
+  margin-left: 40%;
+}
+
 @media (min-width: 600px) {
   #feature-image {
     display: inline-block;
@@ -60,9 +62,21 @@
     margin:auto;
     min-height: 300px;
   }
-  #next-button {
+
+  .project-block {
+    margin-right: 5%;
+  }
+
+  .next {
     display: block;
-    margin: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+  }
+
+  button {
+    padding: 10%;
   }
 
   body {

@@ -77,8 +77,6 @@ li {
 }
 
 button {
-	position: relative;
-	margin: 2% 35%;
 	padding: 2% 8%;
 	border: 2px solid black;
 	background-color: red;
