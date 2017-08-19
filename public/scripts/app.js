@@ -3,6 +3,8 @@
 var projects = [];
 ///object where functions to show projects on "project"
 var projectView = {};
+///object for initializing page
+var indexView = {};
 
 var banners = ['assets/the_writer_cropped.png', 'assets/azriel.gif'];
 
@@ -91,7 +93,7 @@ projectView.filterChange = function(){
 }
 
 ///click event for project Next button
-function featureDisplay(){
+indexView.featureDisplay = function(){
   var index = projects.length - 1;
   projects[index].toHtml();
 
@@ -156,11 +158,11 @@ Project.fetchData = function(){
 ///prints out projects and then shows feature display
 projectView.initProjectsDisplay = function() {
   projectView.projectsDisplay();
-  featureDisplay();
+  indexView.featureDisplay();
 }
 
 ///picks banner at random and loads theme based on that
-function insertCSSTheme(){
+indexView.insertCSSTheme = function(){
   ///pick banner
   let index = Math.floor(Math.random() * banners.length);
   $('#intro-image img').attr('src', banners[index]);
@@ -181,11 +183,20 @@ function insertCSSTheme(){
   $('head').append($cssLinkEl);
 }
 
-insertCSSTheme();
-$(document).ready(function(){
+indexView.copyright = function(){
+  var date = new Date();
+  $('#current-year').text(date.getFullYear());
+}
 
+indexView.initIndexPage = function(){
+  indexView.insertCSSTheme();
+  indexView.copyright();
   Project.fetchData();
   projectView.showMoreOrLess();
   projectView.populateFilter();
   projectView.filterChange();
+}
+
+$(document).ready(function(){
+  indexView.initIndexPage();
 });
