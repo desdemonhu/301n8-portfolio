@@ -16,6 +16,9 @@
   margin: 0px;
   padding: 0px;
   background-color: #bb0003;
+  background-size: contain;
+  background-image: url('../assets/Gothic-border-for-creation.png');
+  background-repeat: no-repeat;
 }
 
 #intro-image img{
@@ -26,9 +29,8 @@
 
 #intro-text {
   position: absolute;
-  margin-top: -70%;
-  margin-left: 2%;
-  margin-right: 55%;
-  padding-bottom: 20px;
-  background-color: black;
+  margin-top: -65%;
+  margin-left: 15%;
+  margin-right: 30%;
+  background-color: transparent;
 }
