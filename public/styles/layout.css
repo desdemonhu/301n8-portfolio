@@ -1,15 +1,15 @@
 .navigation li, .navigation ul, .navigation-social li{
   display: inline;
-  padding: 7%;
+  padding: 2%;
 }
 
 .navigation-social li{
-  padding: 12%;
 }
 
 .navigation, .navigation-social {
-  position: relative;
-  align-self: center;
+  margin: auto;
+  /*position: relative;
+  align-self: center;*/
   background-color: #485366;
   color: white;
 }
@@ -42,19 +42,27 @@
   margin: 2%;
 }
 
+#project-display {
+  padding: 1%;
+  border-top: 4px solid black;
+}
+
 @media (min-width: 600px) {
   #feature-image {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
     width: 347px;
     height: 275px;
   }
   #project-display {
     position: relative;
-    align-self: center;
-    padding-left: 33%;
-    padding-right: 20%;
+    margin:auto;
+    min-height: 300px;
   }
   #next-button {
-    margin-left: .5%;
+    display: block;
+    margin: auto;
   }
 
   body {

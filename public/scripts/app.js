@@ -4,6 +4,8 @@ var projects = [];
 ///object where functions to show projects on "project"
 var projectView = {};
 
+var banners = ['assets/the_writer_cropped.png', 'assets/azriel.gif'];
+
 ///constructor function for project information
 function Project(name, url, image, description, language, published){
   ///TODO: redo this so that I don't have to put them individually in loadProjects
@@ -157,7 +159,31 @@ projectView.initProjectsDisplay = function() {
   featureDisplay();
 }
 
+///picks banner at random and loads theme based on that
+function insertCSSTheme(){
+  ///pick banner
+  let index = Math.floor(Math.random() * banners.length);
+  $('#intro-image img').attr('src', banners[index]);
+
+  //Create link for stylesheet
+  var $cssLinkEl = $('<link>').attr('rel','stylesheet');
+
+  switch (index) {
+  case 0:
+    // $cssLinkEl.attr();
+    break;
+  case 1:
+    $cssLinkEl.attr('href','styles/theme_pom.css');
+    break;
+  default:
+    // $cssLinkEl.attr();
+  }
+  $('head').append($cssLinkEl);
+}
+
+insertCSSTheme();
 $(document).ready(function(){
+
   Project.fetchData();
   projectView.showMoreOrLess();
   projectView.populateFilter();
