@@ -250,7 +250,7 @@ imageGallery.closeModal = function(){
 
 imageGallery.initModal = function(){
   $('#gallery').on('click', '.gallery-picture', function(){
-    $('#img01').src = $(this).attr('data-image');
+    $('#img01').attr('src', $(this).attr('data-image'));
     $('#myModal').show();
   })
   $('.close').on('click', function(){

@@ -60,9 +60,15 @@
   display: inline-block;
   float: left;
   margin: 2px;
+  width: 100%;
 }
 
 @media (min-width: 600px) {
+  .gallery-picture{
+    width: 347px;
+    height: 275px;
+  }
+
   #feature-image {
     display: inline-block;
     float: left;
