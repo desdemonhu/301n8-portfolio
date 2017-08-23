@@ -160,7 +160,6 @@ projectView.projectsDisplay = function(){
   $('#content-placeholder').append(compiledHtml);
 };
 
-////TODO:HANDLEBARS TEPLATE FOR IMAGE GALLERY
 imageGallery.galleryDisplay = function (){
   let format = $('#gallery-template').html();
   let templateGallery = Handlebars.compile(format);
@@ -243,9 +242,27 @@ indexView.copyright = function(){
   $('#current-year').text(date.getFullYear());
 }
 
+imageGallery.closeModal = function(){
+  $('.close').on('click', function(){
+    $('#myModal').hide();
+  })
+}
+
+imageGallery.initModal = function(){
+  $('#gallery').on('click', '.gallery-picture', function(){
+    $('#img01').src = $(this).attr('data-image');
+    $('#myModal').show();
+  })
+  $('.close').on('click', function(){
+    $('#myModal').hide();
+  })
+}
+
 indexView.initIndexPage = function(){
   indexView.insertCSSTheme();
   indexView.copyright();
+  imageGallery.closeModal();
+  imageGallery.initModal();
   Project.fetchData();
   projectView.showMoreOrLess();
   projectView.populateFilter();

@@ -27,7 +27,7 @@
 
     <script id="gallery-template" type="text/x-handlebars-template">
       {{#each this}}
-      <img class="gallery-picture" src="{{thumbnail}}" alt="">
+      <img class="gallery-picture" src="{{thumbnail}}" data-image="{{image}}" alt="">
       {{/each}}
     </script>
 
@@ -63,6 +63,11 @@
       </section>
     </section>
     <section id="gallery" class="clearfix"></section>
+    <div id="myModal" class="modal">
+        <span class="close">&times</span>
+        <img class="modal-content" id="img01" src="" alt="" />
+        <div id="caption"></div>
+    </div>
     <section id="about" class="project-text">
       <h1>About Me</h1>
       <p>This is a section about me</p>
