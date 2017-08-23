@@ -54,10 +54,12 @@
 }
 #gallery {
   display: none;
+  width: 100%;
 }
 .gallery-picture {
   display: inline-block;
   float: left;
+  margin: 2px;
 }
 
 @media (min-width: 600px) {
