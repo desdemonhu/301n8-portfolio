@@ -7,6 +7,7 @@ var projectView = {};
 
 ///Object to hold functions for image gallery
 var imageGallery = {};
+imageGallery.index = 0; ///used to know what image is clicked on in gallery
 ///object for initializing page
 var indexView = {};
 
@@ -234,6 +235,7 @@ imageGallery.closeModal = function(){
 
 imageGallery.initModal = function(){
   $('#gallery').on('click', '.gallery-picture', function(){
+    imageGallery.index = parseInt($(this).attr('data-index'));
     $('#img01').attr('src', $(this).attr('data-image'));
     $('#myModal').show();
   })
@@ -242,11 +244,37 @@ imageGallery.initModal = function(){
   })
 }
 
+imageGallery.slideShowPrev = function(){
+  $('#myModal').on('click', '.prev', function(e){
+    e.preventDefault();
+    if(imageGallery.index === 0){
+      imageGallery.index = gallery.length-1;
+    }else {
+      imageGallery.index -= 1;
+    }
+    $('#img01').attr('src', $(`[data-index="${imageGallery.index}"]`).attr('data-image'));
+  })
+}
+
+imageGallery.slideShowNext = function(){
+  $('#myModal').on('click', '.next-gallery', function(e){
+    e.preventDefault();
+    if(imageGallery.index === gallery.length-1){
+      imageGallery.index = 0;
+    }else {
+      imageGallery.index += 1;
+    }
+    $('#img01').attr('src', $(`[data-index="${imageGallery.index}"]`).attr('data-image'));
+  })
+}
+
 indexView.initIndexPage = function(){
   indexView.insertCSSTheme();
   indexView.copyright();
   imageGallery.closeModal();
   imageGallery.initModal();
+  imageGallery.slideShowPrev();
+  imageGallery.slideShowNext();
   Project.fetchData();
   projectView.showMoreOrLess();
   projectView.populateFilter();

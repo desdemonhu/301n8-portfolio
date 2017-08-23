@@ -27,7 +27,7 @@
 
     <script id="gallery-template" type="text/x-handlebars-template">
       {{#each this}}
-      <img class="gallery-picture" src="{{thumbnail}}" data-image="{{image}}" alt="">
+      <img class="gallery-picture" src="{{thumbnail}}" data-image="{{image}}" data-index="{{@index}}" alt="">
       {{/each}}
     </script>
 
@@ -64,9 +64,16 @@
     </section>
     <section id="gallery" class="clearfix"></section>
     <div id="myModal" class="modal">
-        <span class="close">&times</span>
-        <img class="modal-content" id="img01" src="" alt="" />
-        <div id="caption"></div>
+        <span class="close">&times;</span>
+        <div class="modal-content">
+          <div class="mySlides">
+            <div class="numbertext"></div>
+            <img class="modal-content" id="img01" src="" alt="" />
+          </div>
+          <a class="prev" href="#">&#10094;</a>
+          <a class="next-gallery" href="#">&#10095;</a>
+        </div>
+
     </div>
     <section id="about" class="project-text">
       <h1>About Me</h1>
