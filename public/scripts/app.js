@@ -1,12 +1,24 @@
 'use strict';
 ///array of all projects
 var projects = [];
+var gallery = []; ///array of all gallery objects
 ///object where functions to show projects on "project"
 var projectView = {};
+
+///Object to hold functions for image gallery
+var imageGallery = {};
 ///object for initializing page
 var indexView = {};
 
 var banners = ['assets/the_writer_cropped.png', 'assets/azriel.gif'];
+
+///constructor function for image gallery
+function GalleryPicture(thumbnail, image, published){
+  this.thumbnail = `assets/thumbnails/${thumbnail}`;
+  this.image = `assets/gallery/${image}`;
+  this.published = new Date(published);
+  this.class = 'left';
+}
 
 ///constructor function for project information
 function Project(name, url, image, description, language, published){
@@ -117,6 +129,27 @@ projectView.sortProjects = function(){
   })
 }
 
+imageGallery.sortImages = function(){
+  gallery.sort(function(a,b){
+    return b.published - a.published;
+  })
+}
+
+// imageGallery.setClass = function (){
+//   gallery.forEach(function(image) {
+//     if(gallery.indexOf(image)!=0){
+//       if(gallery.indexOf(image)%3===0){
+//         image.class = 'right';
+//       }
+//       else if(gallery.indexOf(image)%2===0){
+//         image.class = 'center';
+//       }else{
+//         image.class = 'left';
+//       }
+//     }
+//   })
+// }
+
 ///handlebars template for projects
 projectView.projectsDisplay = function(){
   projectView.sortProjects();
@@ -127,6 +160,8 @@ projectView.projectsDisplay = function(){
   $('#content-placeholder').append(compiledHtml);
 };
 
+////TODO:HANDLEBARS TEPLATE FOR IMAGE GALLERY
+
 ///Pull projects from JSON file or localStorage
 Project.loadProjects = function(rawData){
   rawData.forEach(function(project){
@@ -136,8 +171,14 @@ Project.loadProjects = function(rawData){
   })
 }
 
+GalleryPicture.loadProjects = function(rawData){
+  rawData.forEach(function(galleryImage){
+    gallery.push(new GalleryPicture(galleryImage.thumbnail, galleryImage.image, galleryImage.published));
+  })
+}
+
 Project.fetchData = function(){
-  if(localStorage.jsonFile){
+  if(localStorage.jsonFile && localStorage.galleryJson){
     ///Get stringyfid date from localStorage
     ///Project.loadProjects(parsed data)
     Project.loadProjects(JSON.parse(localStorage.jsonFile));
@@ -152,6 +193,12 @@ Project.fetchData = function(){
       Project.loadProjects(data);
       projectView.initProjectsDisplay();
     });
+    $.getJSON('data/gallery.json', function(data) {
+      ///get images for gallery
+      GalleryPicture.loadProjects(data);
+      imageGallery.sortImages();
+      // imageGallery.setClass();
+    })
   }
 }
 

@@ -1,0 +1,30 @@
+[
+  {"thumbnail":"anda_thumbnails", "image":"ANDA_cover.jpg", "published":"01/01/2016"},
+  {
+    "thumbnail":"azriel_thumbnails", "image":"azrielTruth.jpg", "published":"01/01/2009"
+  },
+  {
+    "thumbnail":"azrielPale_thumbnails", "image":"azrielPastel.jpg", "published":"01/01/2006"
+  },
+  {
+    "thumbnail":"eli_thumbnails", "image":"eli.jpg", "published":"02/01/2013"
+  },
+  {
+    "thumbnail":"hugo_thumbnails", "image":"hugo.jpg", "published":"02/01/2008"
+  },
+  {
+    "thumbnail":"leliel_thumbnails", "image":"leliel.jpg", "published":"01/01/2015"
+  },
+  {
+    "thumbnail":"lutessa_thumbnails", "image":"lutessa.jpg", "published":"01/01/2016"
+  },
+  {
+    "thumbnail":"tea_thumbnails", "image":"tea.jpg", "published":"01/01/2013"
+  },
+  {
+    "thumbnail":"wind_thumbnails", "image":"wind.jpg", "published":"01/01/2008"
+  },
+  {
+    "thumbnail":"writer_thumbnails", "image":"the_writer.jpg", "published":"01/01/2009"
+  }
+]

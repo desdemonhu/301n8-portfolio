@@ -53,6 +53,11 @@
   text-align: right;
 }
 
+.gallery-picture {
+  display: inline-block;
+  float: left;
+}
+
 @media (min-width: 600px) {
   #feature-image {
     display: inline-block;
