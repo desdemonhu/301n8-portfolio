@@ -135,21 +135,6 @@ imageGallery.sortImages = function(){
   })
 }
 
-// imageGallery.setClass = function (){
-//   gallery.forEach(function(image) {
-//     if(gallery.indexOf(image)!=0){
-//       if(gallery.indexOf(image)%3===0){
-//         image.class = 'right';
-//       }
-//       else if(gallery.indexOf(image)%2===0){
-//         image.class = 'center';
-//       }else{
-//         image.class = 'left';
-//       }
-//     }
-//   })
-// }
-
 ///handlebars template for projects
 projectView.projectsDisplay = function(){
   projectView.sortProjects();
@@ -204,7 +189,6 @@ Project.fetchData = function(){
       GalleryPicture.loadProjects(data);
       imageGallery.sortImages();
       imageGallery.galleryDisplay();
-      // imageGallery.setClass();
     })
   }
 }
