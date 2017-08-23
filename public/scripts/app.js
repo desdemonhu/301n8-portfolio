@@ -161,6 +161,13 @@ projectView.projectsDisplay = function(){
 };
 
 ////TODO:HANDLEBARS TEPLATE FOR IMAGE GALLERY
+imageGallery.galleryDisplay = function (){
+  let format = $('#gallery-template').html();
+  let templateGallery = Handlebars.compile(format);
+  let compiled = templateGallery(gallery);
+  console.log(gallery);
+  $('#gallery').append(compiled);
+}
 
 ///Pull projects from JSON file or localStorage
 Project.loadProjects = function(rawData){
@@ -197,6 +204,7 @@ Project.fetchData = function(){
       ///get images for gallery
       GalleryPicture.loadProjects(data);
       imageGallery.sortImages();
+      imageGallery.galleryDisplay();
       // imageGallery.setClass();
     })
   }

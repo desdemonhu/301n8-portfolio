@@ -26,7 +26,6 @@ navigationFunctions.mainNav = function(){
     e.preventDefault();
     $('.tab-content').children().hide();
     $('.tab-content').children(`#${$(this).data('content')}`).fadeIn();
-    // $(`#${contentType}`).fadeIn();
   });
 }
 

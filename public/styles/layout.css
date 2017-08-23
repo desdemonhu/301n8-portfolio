@@ -52,7 +52,9 @@
 #footer {
   text-align: right;
 }
-
+#gallery {
+  display: none;
+}
 .gallery-picture {
   display: inline-block;
   float: left;
