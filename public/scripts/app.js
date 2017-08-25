@@ -198,6 +198,9 @@ Project.fetchData = function(){
 projectView.initProjectsDisplay = function() {
   projectView.projectsDisplay();
   indexView.featureDisplay();
+  projectView.showMoreOrLess();
+  projectView.populateFilter();
+  projectView.filterChange();
 }
 
 ///picks banner at random and loads theme based on that
@@ -238,6 +241,7 @@ imageGallery.initModal = function(){
     imageGallery.index = parseInt($(this).attr('data-index'));
     $('#img01').attr('src', $(this).attr('data-image'));
     $('#myModal').show();
+    imageGallery.numberText();
   })
   $('.close').on('click', function(){
     $('#myModal').hide();
@@ -253,6 +257,7 @@ imageGallery.slideShowPrev = function(){
       imageGallery.index -= 1;
     }
     $('#img01').attr('src', $(`[data-index="${imageGallery.index}"]`).attr('data-image'));
+    imageGallery.numberText();
   })
 }
 
@@ -265,7 +270,13 @@ imageGallery.slideShowNext = function(){
       imageGallery.index += 1;
     }
     $('#img01').attr('src', $(`[data-index="${imageGallery.index}"]`).attr('data-image'));
+    imageGallery.numberText();
   })
+}
+
+///Changes number of what slide you're on in modal
+imageGallery.numberText = function(){
+  $('.numbertext').text(`${imageGallery.index + 1}/${gallery.length}`);
 }
 
 indexView.initIndexPage = function(){
@@ -276,9 +287,6 @@ indexView.initIndexPage = function(){
   imageGallery.slideShowPrev();
   imageGallery.slideShowNext();
   Project.fetchData();
-  projectView.showMoreOrLess();
-  projectView.populateFilter();
-  projectView.filterChange();
 }
 
 $(document).ready(function(){
