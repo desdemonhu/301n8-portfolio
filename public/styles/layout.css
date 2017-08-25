@@ -52,8 +52,23 @@
 #footer {
   text-align: right;
 }
+#gallery {
+  display: none;
+  width: 100%;
+}
+.gallery-picture {
+  display: inline-block;
+  float: left;
+  margin: 2px;
+  width: 100%;
+}
 
 @media (min-width: 600px) {
+  .gallery-picture{
+    width: 347px;
+    height: 275px;
+  }
+
   #feature-image {
     display: inline-block;
     float: left;
@@ -75,12 +90,12 @@
     display: block;
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 10px;
     padding: 10px;
   }
 
   button {
-    padding: 10%;
+    padding: 20%;
   }
 
   body {

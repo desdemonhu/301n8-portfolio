@@ -25,6 +25,12 @@
         {{/each}}
     </script>
 
+    <script id="gallery-template" type="text/x-handlebars-template">
+      {{#each this}}
+      <img class="gallery-picture" src="{{thumbnail}}" data-image="{{image}}" data-index="{{@index}}" alt="">
+      {{/each}}
+    </script>
+
   </head>
   <body>
     <nav class="menu">
@@ -36,7 +42,7 @@
 
     <section id="intro">
       <div id="intro-image">
-        <img src="assets/the_writer_cropped.png" alt="The Writer" />
+        <img src="" alt="The Writer" />
       </div>
       <div class="intro-border">
         <div id="intro-text">
@@ -56,6 +62,19 @@
         </div>
       </section>
     </section>
+    <section id="gallery" class="clearfix"></section>
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+          <div class="mySlides">
+            <div class="numbertext"></div>
+            <img class="modal-content" id="img01" src="" alt="" />
+          </div>
+          <a class="prev" href="#">&#10094;</a>
+          <a class="next-gallery" href="#">&#10095;</a>
+        </div>
+
+    </div>
     <section id="about" class="project-text">
       <h1>About Me</h1>
       <p>This is a section about me</p>

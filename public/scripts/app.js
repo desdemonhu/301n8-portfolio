@@ -1,12 +1,25 @@
 'use strict';
 ///array of all projects
 var projects = [];
+var gallery = []; ///array of all gallery objects
 ///object where functions to show projects on "project"
 var projectView = {};
+
+///Object to hold functions for image gallery
+var imageGallery = {};
+imageGallery.index = 0; ///used to know what image is clicked on in gallery
 ///object for initializing page
 var indexView = {};
 
 var banners = ['assets/the_writer_cropped.png', 'assets/azriel.gif'];
+
+///constructor function for image gallery
+function GalleryPicture(thumbnail, image, published){
+  this.thumbnail = `assets/thumbnails/${thumbnail}`;
+  this.image = `assets/gallery/${image}`;
+  this.published = new Date(published);
+  this.class = 'left';
+}
 
 ///constructor function for project information
 function Project(name, url, image, description, language, published){
@@ -117,6 +130,12 @@ projectView.sortProjects = function(){
   })
 }
 
+imageGallery.sortImages = function(){
+  gallery.sort(function(a,b){
+    return b.published - a.published;
+  })
+}
+
 ///handlebars template for projects
 projectView.projectsDisplay = function(){
   projectView.sortProjects();
@@ -127,6 +146,14 @@ projectView.projectsDisplay = function(){
   $('#content-placeholder').append(compiledHtml);
 };
 
+imageGallery.galleryDisplay = function (){
+  let format = $('#gallery-template').html();
+  let templateGallery = Handlebars.compile(format);
+  let compiled = templateGallery(gallery);
+  console.log(gallery);
+  $('#gallery').append(compiled);
+}
+
 ///Pull projects from JSON file or localStorage
 Project.loadProjects = function(rawData){
   rawData.forEach(function(project){
@@ -136,8 +163,14 @@ Project.loadProjects = function(rawData){
   })
 }
 
+GalleryPicture.loadProjects = function(rawData){
+  rawData.forEach(function(galleryImage){
+    gallery.push(new GalleryPicture(galleryImage.thumbnail, galleryImage.image, galleryImage.published));
+  })
+}
+
 Project.fetchData = function(){
-  if(localStorage.jsonFile){
+  if(localStorage.jsonFile && localStorage.galleryJson){
     ///Get stringyfid date from localStorage
     ///Project.loadProjects(parsed data)
     Project.loadProjects(JSON.parse(localStorage.jsonFile));
@@ -152,6 +185,12 @@ Project.fetchData = function(){
       Project.loadProjects(data);
       projectView.initProjectsDisplay();
     });
+    $.getJSON('data/gallery.json', function(data) {
+      ///get images for gallery
+      GalleryPicture.loadProjects(data);
+      imageGallery.sortImages();
+      imageGallery.galleryDisplay();
+    })
   }
 }
 
@@ -159,6 +198,9 @@ Project.fetchData = function(){
 projectView.initProjectsDisplay = function() {
   projectView.projectsDisplay();
   indexView.featureDisplay();
+  projectView.showMoreOrLess();
+  projectView.populateFilter();
+  projectView.filterChange();
 }
 
 ///picks banner at random and loads theme based on that
@@ -188,13 +230,63 @@ indexView.copyright = function(){
   $('#current-year').text(date.getFullYear());
 }
 
+imageGallery.closeModal = function(){
+  $('.close').on('click', function(){
+    $('#myModal').hide();
+  })
+}
+
+imageGallery.initModal = function(){
+  $('#gallery').on('click', '.gallery-picture', function(){
+    imageGallery.index = parseInt($(this).attr('data-index'));
+    $('#img01').attr('src', $(this).attr('data-image'));
+    $('#myModal').show();
+    imageGallery.numberText();
+  })
+  $('.close').on('click', function(){
+    $('#myModal').hide();
+  })
+}
+
+imageGallery.slideShowPrev = function(){
+  $('#myModal').on('click', '.prev', function(e){
+    e.preventDefault();
+    if(imageGallery.index === 0){
+      imageGallery.index = gallery.length-1;
+    }else {
+      imageGallery.index -= 1;
+    }
+    $('#img01').attr('src', $(`[data-index="${imageGallery.index}"]`).attr('data-image'));
+    imageGallery.numberText();
+  })
+}
+
+imageGallery.slideShowNext = function(){
+  $('#myModal').on('click', '.next-gallery', function(e){
+    e.preventDefault();
+    if(imageGallery.index === gallery.length-1){
+      imageGallery.index = 0;
+    }else {
+      imageGallery.index += 1;
+    }
+    $('#img01').attr('src', $(`[data-index="${imageGallery.index}"]`).attr('data-image'));
+    imageGallery.numberText();
+  })
+}
+
+///Changes number of what slide you're on in modal
+imageGallery.numberText = function(){
+  $('.numbertext').text(`${imageGallery.index + 1}/${gallery.length}`);
+}
+
 indexView.initIndexPage = function(){
   indexView.insertCSSTheme();
   indexView.copyright();
+  imageGallery.closeModal();
+  imageGallery.initModal();
+  imageGallery.slideShowPrev();
+  imageGallery.slideShowNext();
   Project.fetchData();
-  projectView.showMoreOrLess();
-  projectView.populateFilter();
-  projectView.filterChange();
 }
 
 $(document).ready(function(){

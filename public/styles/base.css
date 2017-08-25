@@ -49,6 +49,12 @@ table {
 
 /*RESET CSS END	*/
 
+.clearfix:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
 body{
 	background-color: rgb(235, 234, 234);
 }
