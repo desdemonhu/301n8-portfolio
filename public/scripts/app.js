@@ -218,6 +218,8 @@ indexView.insertCSSTheme = function(){
     break;
   case 1:
     $cssLinkEl.attr('href','styles/theme_pom.css');
+    $('#intro-text h1').text(' ');
+    $('#intro-text p').html('Everything that falls,<p>quietly or crashing,</p><p>no matter how far, or how fast...</p><p style="text-align:right">...lands.</p>');
     break;
   default:
     // $cssLinkEl.attr();

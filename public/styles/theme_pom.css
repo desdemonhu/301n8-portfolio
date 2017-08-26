@@ -30,7 +30,14 @@
 #intro-text {
   position: absolute;
   margin-top: -65%;
-  margin-left: 15%;
+  margin-left: 20%;
   margin-right: 35%;
   background-color: transparent;
+}
+
+@@media (min-width: 700px) {
+  #intro-text {
+    margin-left: 45%;
+    margin-right: 15%;
+  }
 }
