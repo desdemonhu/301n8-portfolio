@@ -164,8 +164,11 @@ Project.loadProjects = function(rawData){
 }
 
 GalleryPicture.loadProjects = function(rawData){
-  rawData.forEach(function(galleryImage){
-    gallery.push(new GalleryPicture(galleryImage.thumbnail, galleryImage.image, galleryImage.published));
+  // rawData.forEach(function(galleryImage){
+  //   gallery.push(new GalleryPicture(galleryImage.thumbnail, galleryImage.image, galleryImage.published));
+  // })
+  gallery = rawData.map(function(galleryImage){
+    return new GalleryPicture(galleryImage.thumbnail, galleryImage.image, galleryImage.published)
   })
 }
 
