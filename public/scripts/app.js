@@ -164,9 +164,16 @@ Project.loadProjects = function(rawData){
 }
 
 GalleryPicture.loadProjects = function(rawData){
-  rawData.forEach(function(galleryImage){
-    gallery.push(new GalleryPicture(galleryImage.thumbnail, galleryImage.image, galleryImage.published));
-  })
+  gallery = rawData.map(function(galleryImage){
+    return new GalleryPicture(galleryImage.thumbnail, galleryImage.image, galleryImage.published)
+  }).sort(function(a,b){
+    return b.published - a.published;
+  }).reduce(function(acc, value, index){
+    if (index < 10){
+      acc.push(value);
+    }
+    return acc;
+  }, [])
 }
 
 Project.fetchData = function(){
@@ -188,7 +195,7 @@ Project.fetchData = function(){
     $.getJSON('data/gallery.json', function(data) {
       ///get images for gallery
       GalleryPicture.loadProjects(data);
-      imageGallery.sortImages();
+      // imageGallery.sortImages();
       imageGallery.galleryDisplay();
     })
   }
