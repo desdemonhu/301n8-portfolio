@@ -176,7 +176,7 @@ GalleryPicture.loadProjects = function(rawData){
   }, [])
 }
 
-Project.fetchData = function(){
+Project.fetchData = function(callback){
   if(localStorage.jsonFile && localStorage.galleryJson){
     ///Get stringyfid date from localStorage
     ///Project.loadProjects(parsed data)
@@ -187,17 +187,20 @@ Project.fetchData = function(){
     ///Create localStorage.jsonFile
     ///Load projects from JSON file
     ///Call projectView.projectsDisplay
-    $.getJSON('data/projects.json', function(data){
-      localStorage.jsonFile = JSON.stringify(data);
-      Project.loadProjects(data);
-      projectView.initProjectsDisplay();
-    });
-    $.getJSON('data/gallery.json', function(data) {
-      ///get images for gallery
-      GalleryPicture.loadProjects(data);
-      // imageGallery.sortImages();
-      imageGallery.galleryDisplay();
-    })
+    $.getJSON('data/projects.json')
+      .then(data => {
+        localStorage.jsonFile = JSON.stringify(data);
+        Project.loadProjects(data);
+        projectView.initProjectsDisplay();
+        callback();
+      })
+    // $.getJSON('data/gallery.json')
+    //   .then(data => {
+    //     ///get images for gallery
+    //     GalleryPicture.loadProjects(data);
+    //     // imageGallery.sortImages();
+    //     imageGallery.galleryDisplay();
+    //   })
   }
 }
 
@@ -291,13 +294,15 @@ imageGallery.numberText = function(){
 indexView.initIndexPage = function(){
   indexView.insertCSSTheme();
   indexView.copyright();
+}
+
+imageGallery.galleryView = function(){
   imageGallery.closeModal();
   imageGallery.initModal();
   imageGallery.slideShowPrev();
   imageGallery.slideShowNext();
-  Project.fetchData();
 }
 
-$(document).ready(function(){
-  indexView.initIndexPage();
-});
+// $(document).ready(function(){
+//   indexView.initIndexPage();
+// });
