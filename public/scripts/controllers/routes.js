@@ -1,5 +1,5 @@
 'use strict';
 
 page('/', indexcontroller.init);
-// page('/gallery', );
+page('/gallery', gallerycontroller.init);
 page();

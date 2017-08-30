@@ -194,13 +194,13 @@ Project.fetchData = function(callback){
         projectView.initProjectsDisplay();
         callback();
       })
-    $.getJSON('data/gallery.json')
-      .then(data => {
-        ///get images for gallery
-        GalleryPicture.loadProjects(data);
-        // imageGallery.sortImages();
-        imageGallery.galleryDisplay();
-      })
+    // $.getJSON('data/gallery.json')
+    //   .then(data => {
+    //     ///get images for gallery
+    //     GalleryPicture.loadProjects(data);
+    //     // imageGallery.sortImages();
+    //     imageGallery.galleryDisplay();
+    //   })
   }
 }
 
@@ -294,11 +294,13 @@ imageGallery.numberText = function(){
 indexView.initIndexPage = function(){
   indexView.insertCSSTheme();
   indexView.copyright();
+}
+
+imageGallery.galleryView = function(){
   imageGallery.closeModal();
   imageGallery.initModal();
   imageGallery.slideShowPrev();
   imageGallery.slideShowNext();
-  // Project.fetchData();
 }
 
 // $(document).ready(function(){
