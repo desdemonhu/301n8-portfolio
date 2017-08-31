@@ -1,7 +1,9 @@
 'use strict';
+var portfolio = portfolio || {};
+var page = page;
 
-page('/', indexcontroller.init);
-page('/gallery', gallerycontroller.init);
-page('/projects', indexcontroller.initProjects);
-page('/about', indexcontroller.initAbout);
+page('/', portfolio.indexcontroller.init);
+page('/gallery', portfolio.gallerycontroller.init);
+page('/projects', portfolio.indexcontroller.initProjects);
+page('/about', portfolio.indexcontroller.initAbout);
 page();
