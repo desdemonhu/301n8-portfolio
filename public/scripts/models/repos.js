@@ -3,6 +3,8 @@ var portfolio = portfolio || {};
 (function(app){
   var repos = {};
 
+  repos.repoTemplate = Handlebars.compile($('#repo-template').html());
+
   repos.fetchData = function(){
     $.ajax({
       url:'https://api.github.com/users/desdemonhu/repos',
@@ -11,7 +13,11 @@ var portfolio = portfolio || {};
         'Authorization': `token ${gitHubToken}`
       }
     })
-    .then(results =>{console.log(results)}, err =>{console.log(err);
+    .then(results =>{
+      results.forEach(repo =>{
+        $('#repos').append(repos.repoTemplate(repo));
+      })
+    }, err =>{console.log(err);
     });
   }
   app.repos = repos;

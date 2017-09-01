@@ -12,6 +12,7 @@ var portfolio = portfolio || {};
     if(portfolio.projects.length === 0){
       indexcontroller.init();
     }
+    portfolio.repos.fetchData();
     portfolio.navigationFunctions.mainNav('content-placeholder');
   }
 

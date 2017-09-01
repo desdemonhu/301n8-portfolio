@@ -30,6 +30,10 @@
       {{/each}}
     </script>
 
+    <script id="repo-template" type="text/x-handlebars-template">
+      <li><a href="{{html_url}}">{{name}}</a>, Published: {{updated_at}}</li>
+    </script>
+
   </head>
   <body>
     <nav class="menu">
@@ -87,6 +91,9 @@
           </select>
         </li>
       </ul>
+      <div class="repo-section">
+        <ul id="repos"></ul>
+      </div><hr />
     </section>
 
   </section> <!--End of tab -->
