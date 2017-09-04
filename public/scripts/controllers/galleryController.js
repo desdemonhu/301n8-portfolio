@@ -1,9 +1,11 @@
 'use strict';
+var portfolio = portfolio || {};
 
-var navigation = navigation || {};
-
-var gallerycontroller = {};
-gallerycontroller.init = () => {
-  imageGallery.fetchData(imageGallery.galleryView);
-  navigation.navigationFunctions.mainNav('gallery');
-}
+(function(app){
+  var gallerycontroller = {};
+  gallerycontroller.init = () => {
+    portfolio.imageGallery.fetchData(portfolio.imageGallery.galleryView);
+    portfolio.navigationFunctions.mainNav('gallery');
+  }
+  app.gallerycontroller = gallerycontroller;
+})(portfolio);

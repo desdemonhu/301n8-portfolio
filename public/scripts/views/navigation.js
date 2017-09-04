@@ -1,7 +1,7 @@
 'use strict';
-var navigation = navigation || {};
+var portfolio = portfolio || {};
 
-(function(module){
+(function(app){
   var navigationFunctions = {};
 
   var navigationString = '<ul><li data-content="intro"><a href="/">Home</a></li><li>-</li><li data-content="about"><a href="/about">About</a></li><li>-</li><li data-content="content-placeholder"><a href="/projects">Projects</a></li><li>-</li><li data-content="gallery"><a href="/gallery">Gallery</a></li></ul>';
@@ -42,6 +42,6 @@ var navigation = navigation || {};
     $('.navigation-social').html(socialMediaString);
     // navigationFunctions.mainNav();
   });
-  module.navigationFunctions = navigationFunctions;
+  app.navigationFunctions = navigationFunctions;
 
-})(navigation);
+})(portfolio);

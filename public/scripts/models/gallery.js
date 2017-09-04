@@ -1,13 +1,15 @@
 'use strict';
-var imageGallery = imageGallery || {}
+var portfolio = portfolio || {};
 
-imageGallery.fetchData = callback => {
-  $.getJSON('data/gallery.json')
-    .then(data => {
-      ///get images for gallery
-      GalleryPicture.loadProjects(data);
-      // imageGallery.sortImages();
-      imageGallery.galleryDisplay();
-      callback();
-    })
-}
+(function(){
+  portfolio.imageGallery.fetchData = callback => {
+    $.getJSON('data/gallery.json')
+      .then(data => {
+        ///get images for gallery
+        portfolio.GalleryPicture.loadProjects(data);
+        // imageGallery.sortImages();
+        portfolio.imageGallery.galleryDisplay();
+        callback();
+      })
+  }
+})(portfolio);
