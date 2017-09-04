@@ -5,7 +5,9 @@ const opn = require('opn'); //for opening in browser
 const PORT = process.env.PORT || 4000;
 
 
-app.use(express.static('public'));
+app.use(express.static('./public'));
+
+
 app.get('/*', function(there, backAgain) {
   backAgain.sendFile('index.html', {root: './public'});
 });
