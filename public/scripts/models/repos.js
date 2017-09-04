@@ -14,7 +14,17 @@ var portfolio = portfolio || {};
       }
     })
     .then(results =>{
-      results.forEach(repo =>{
+      var modifiedResults = results.sort(function(a,b){
+        let aDate = new Date(a['updated_at']);
+        let bDate = new Date(b['updated_at']);
+        return bDate - aDate;
+      }).reduce(function(acc, value, index){
+        if(index < 5){
+          acc.push(value);
+        }
+        return acc;
+      },[]);
+      modifiedResults.forEach(repo =>{
         $('#repos').append(repos.repoTemplate(repo));
       })
     }, err =>{console.log(err);
