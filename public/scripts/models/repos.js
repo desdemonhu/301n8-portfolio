@@ -13,7 +13,7 @@ var portfolio = portfolio || {};
     //     'Authorization': `token ${process.env.GITHUB_TOKEN}`
     //   }
     // })
-    $.get('/github/users/codefellows/repos')
+    $.get('/github/users/desdemonhu/repos')
     .then(results =>{
       var modifiedResults = results.sort(function(a,b){
         let aDate = new Date(a['updated_at']);
