@@ -10,7 +10,7 @@ var portfolio = portfolio || {};
       url:'https://api.github.com/users/desdemonhu/repos',
       method:'GET',
       headers: {
-        'Authorization': `token ${gitHubToken}`
+        'Authorization': `token ${process.env.GITHUB_TOKEN}`
       }
     })
     .then(results =>{
