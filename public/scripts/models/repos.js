@@ -6,13 +6,7 @@ var portfolio = portfolio || {};
   repos.repoTemplate = Handlebars.compile($('#repo-template').html());
 
   repos.fetchData = function(){
-    // $.ajax({
-    //   url:'https://api.github.com/users/desdemonhu/repos',
-    //   method:'GET',
-    //   headers: {
-    //     'Authorization': `token ${process.env.GITHUB_TOKEN}`
-    //   }
-    // })
+    // TODO: This added the whole array each time you go to the page. But if you refresh it's fine. Fix this!
     $.get('/github/users/desdemonhu/repos')
     .then(results =>{
       var modifiedResults = results.sort(function(a,b){
