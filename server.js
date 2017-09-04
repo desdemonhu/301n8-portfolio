@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const opn = require('opn'); //for opening in browser
+// const opn = require('opn'); //for opening in browser
 // const bodyParser = require('body-parser').urlencoded({extended: true});
 const PORT = process.env.PORT || 4000;
 
@@ -12,7 +12,7 @@ app.get('/*', function(there, backAgain) {
   backAgain.sendFile('index.html', {root: './public'});
 });
 
-opn(`http://localhost:${PORT}`);  ///automatically opens in default browser
+// opn(`http://localhost:${PORT}`);  ///automatically opens in default browser
 
 // // (STRETCH) Write a new route that will handle a request and send the new.html file back to the user
 // app.get('/new', function(req, res){
