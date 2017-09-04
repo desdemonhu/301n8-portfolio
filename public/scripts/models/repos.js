@@ -6,13 +6,14 @@ var portfolio = portfolio || {};
   repos.repoTemplate = Handlebars.compile($('#repo-template').html());
 
   repos.fetchData = function(){
-    $.ajax({
-      url:'https://api.github.com/users/desdemonhu/repos',
-      method:'GET',
-      headers: {
-        'Authorization': `token ${process.env.GITHUB_TOKEN}`
-      }
-    })
+    // $.ajax({
+    //   url:'https://api.github.com/users/desdemonhu/repos',
+    //   method:'GET',
+    //   headers: {
+    //     'Authorization': `token ${process.env.GITHUB_TOKEN}`
+    //   }
+    // })
+    $.get('/github/users/codefellows/repos')
     .then(results =>{
       var modifiedResults = results.sort(function(a,b){
         let aDate = new Date(a['updated_at']);
