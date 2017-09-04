@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 
-app.use(express.static('./public'));
+app.use(express.static('public'));
 
 
 app.get('/*', function(there, backAgain) {
