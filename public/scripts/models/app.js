@@ -196,7 +196,6 @@ var Handlebars = Handlebars;
         .then(data => {
           localStorage.jsonFile = JSON.stringify(data);
           Project.loadProjects(data);
-          projectView.initProjectsDisplay();
           callback();
         })
       // $.getJSON('data/gallery.json')
@@ -212,7 +211,6 @@ var Handlebars = Handlebars;
   ///prints out projects and then shows feature display
   projectView.initProjectsDisplay = function() {
     projectView.projectsDisplay();
-    indexView.featureDisplay();
     projectView.showMoreOrLess();
     projectView.populateFilter();
     projectView.filterChange();
@@ -298,6 +296,7 @@ var Handlebars = Handlebars;
 
   indexView.initIndexPage = function(){
     indexView.insertCSSTheme();
+    portfolio.indexView.featureDisplay();
     indexView.copyright();
   }
 

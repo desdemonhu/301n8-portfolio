@@ -5,15 +5,19 @@ var portfolio = portfolio || {};
   var indexcontroller = {};
   indexcontroller.init = () => {
     portfolio.Project.fetchData(portfolio.indexView.initIndexPage);
+    portfolio.indexView.featureDisplay();
     portfolio.navigationFunctions.mainNav('intro');
   }
 
-  indexcontroller.initProjects = () => {
-    if(portfolio.projects.length === 0){
+  indexcontroller.initProjects = (ctx, next) => {
+    if($('#content-placeholder .projects-displayed').length){
+      portfolio.navigationFunctions.mainNav('content-placeholder');
+    }else {
       indexcontroller.init();
+      portfolio.repos.fetchData();
+      portfolio.navigationFunctions.mainNav('content-placeholder');
+      next();
     }
-    portfolio.repos.fetchData();
-    portfolio.navigationFunctions.mainNav('content-placeholder');
   }
 
   indexcontroller.initAbout = () => {
