@@ -9,11 +9,13 @@ var portfolio = portfolio || {};
   }
 
   indexcontroller.initProjects = () => {
-    if(portfolio.projects.length === 0){
+    if($('#content-placeholder .projects-displayed').length){
+      portfolio.navigationFunctions.mainNav('content-placeholder');
+    }else {
       indexcontroller.init();
+      portfolio.repos.fetchData();
+      portfolio.navigationFunctions.mainNav('content-placeholder');
     }
-    portfolio.repos.fetchData();
-    portfolio.navigationFunctions.mainNav('content-placeholder');
   }
 
   indexcontroller.initAbout = () => {
