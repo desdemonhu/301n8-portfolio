@@ -5,7 +5,6 @@ var portfolio = portfolio || {};
   var indexcontroller = {};
   indexcontroller.init = () => {
     portfolio.Project.fetchData(portfolio.indexView.initIndexPage);
-    portfolio.indexView.featureDisplay();
     portfolio.navigationFunctions.mainNav('intro');
   }
 
