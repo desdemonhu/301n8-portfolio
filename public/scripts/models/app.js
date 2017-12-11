@@ -227,7 +227,10 @@ var Handlebars = Handlebars;
 
     switch (index) {
     case 0:
-      // $cssLinkEl.attr();
+    ///if Pom theme was applied already, remove it
+      if($cssLinkEl.attr('href','styles/theme_pom.css')){
+        $cssLinkEl.removeAttr('href','styles/theme_pom.css');
+      }
       break;
     case 1:
       $cssLinkEl.attr('href','styles/theme_pom.css');
