@@ -220,22 +220,21 @@ var Handlebars = Handlebars;
   indexView.insertCSSTheme = function(){
     ///pick banner
     let index = Math.floor(Math.random() * banners.length);
-    $('#intro-image img').attr('src', banners[index]);
+    if($('#intro-image img').attr('src') == ''){
+      $('#intro-image img').attr('src', banners[index]);
+    }
 
     //Create link for stylesheet
     var $cssLinkEl = $('<link>').attr('rel','stylesheet');
 
     switch (index) {
     case 0:
-    ///if Pom theme was applied already, remove it
-      if($cssLinkEl.attr('href','styles/theme_pom.css')){
-        $cssLinkEl.removeAttr('href','styles/theme_pom.css');
-      }
+      $cssLinkEl.removeAttr('href');
       break;
     case 1:
       $cssLinkEl.attr('href','styles/theme_pom.css');
-      $('#intro-text h1').text(' ');
-      $('#intro-text p').html('Everything that falls,<p>quietly or crashing,</p><p>no matter how far, or how fast...</p><p style="text-align:right">...lands.</p>');
+      // $('#intro-text h1').text(' ');
+      // $('#intro-text p').html('Everything that falls,<p>quietly or crashing,</p><p>no matter how far, or how fast...</p><p style="text-align:right">...lands.</p>');
       break;
     default:
       // $cssLinkEl.attr();
